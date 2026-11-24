@@ -1,1 +1,604 @@
 
+<!-- STRIPON GAMING VIDEOS -->
+<div class="gaming-videos-section">
+
+  <h2>🎬 Gaming Videos</h2>
+  <p>Watch gaming highlights, gameplay and tutorials.</p>
+
+  <input
+    type="search"
+    id="gamingVideoSearch"
+    placeholder="Search gaming videos..."
+    oninput="filterGamingVideos()"
+  >
+
+  <div class="gaming-video-categories">
+    <button onclick="filterGamingVideoCategory('All')">All</button>
+    <button onclick="filterGamingVideoCategory('Football')">⚽ Football</button>
+    <button onclick="filterGamingVideoCategory('Racing')">🏎️ Racing</button>
+    <button onclick="filterGamingVideoCategory('Fighting')">🥊 Fighting</button>
+    <button onclick="filterGamingVideoCategory('Motorbike')">🏍️ Motorbike</button>
+  </div>
+
+  <div id="gamingVideoList">
+
+    <article class="gaming-video-card" data-category="Football">
+      <video controls preload="metadata"
+        poster="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800">
+      </video>
+      <h3>⚽ Football Gameplay Highlights</h3>
+      <p>Football Gaming • Gameplay</p>
+    </article>
+
+    <article class="gaming-video-card" data-category="Racing">
+      <video controls preload="metadata"
+        poster="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800">
+      </video>
+      <h3>🏎️ Amazing Racing Gameplay</h3>
+      <p>Racing Gaming • Gameplay</p>
+    </article>
+
+    <article class="gaming-video-card" data-category="Fighting">
+      <video controls preload="metadata"
+        poster="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800">
+      </video>
+      <h3>🥊 Fighting Game Highlights</h3>
+      <p>Fighting Gaming • Highlights</p>
+    </article>
+
+    <article class="gaming-video-card" data-category="Motorbike">
+      <video controls preload="metadata"
+        poster="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=800">
+      </video>
+      <h3>🏍️ Motorbike Racing Gameplay</h3>
+      <p>Motorbike Gaming • Gameplay</p>
+    </article>
+
+  </div>
+
+  <p id="noGamingVideos" hidden>No gaming videos found.</p>
+
+</div>
+<section id="gaming" class="page">
+  <div class="gaming-header">
+    <h1>🎮 STRIPON Gaming Centre</h1>
+    <p>Play. Explore. Compete.</p>
+  </div>
+
+  <input
+    id="gameSearch"
+    type="search"
+    placeholder="Search games..."
+    oninput="filterStriponGames()"
+  >
+
+  <div class="game-categories">
+    <button onclick="filterGameCategory('All')">All</button>
+    <button onclick="filterGameCategory('Puzzle')">Puzzle</button>
+    <button onclick="filterGameCategory('Board')">Board</button>
+    <button onclick="filterGameCategory('Casual')">Casual</button>
+    <button onclick="filterGameCategory('Online')">Online</button>
+  </div>
+
+  <div id="gameResults" class="game-grid">
+
+    <div class="game-card" data-category="Board"
+         data-name="Chess">
+      <div class="game-icon">♟️</div>
+      <h3>Chess</h3>
+      <p>Play a classic board game.</p>
+      <button onclick="launchStriponGame('https://www.chess.com/play')">
+        Play Game
+      </button>
+    </div>
+
+    <div class="game-card" data-category="Puzzle"
+         data-name="Sudoku">
+      <div class="game-icon">🔢</div>
+      <h3>Sudoku</h3>
+      <p>Challenge your number skills.</p>
+      <button onclick="launchStriponGame('https://sudoku.com/')">
+        Play Game
+      </button>
+    </div>
+
+    <div class="game-card" data-category="Puzzle"
+         data-name="2048">
+      <div class="game-icon">🧩</div>
+      <h3>2048</h3>
+      <p>Combine numbers and solve puzzles.</p>
+      <button onclick="launchStriponGame('https://play2048.co/')">
+        Play Game
+      </button>
+    </div>
+
+    <div class="game-card" data-category="Casual"
+         data-name="Miniclip Games">
+      <div class="game-icon">🎮</div>
+      <h3>Miniclip</h3>
+      <p>Explore casual browser games.</p>
+      <button onclick="launchStriponGame('https://www.miniclip.com/')">
+        Explore Games
+      </button>
+    </div>
+
+    <div class="game-card" data-category="Online"
+         data-name="CrazyGames">
+      <div class="game-icon">🕹️</div>
+      <h3>CrazyGames</h3>
+      <p>Explore browser games online.</p>
+      <button onclick="launchStriponGame('https://www.crazygames.com/')">
+        Explore Games
+      </button>
+    </div>
+
+    <div class="game-card" data-category="Online"
+         data-name="Poki">
+      <div class="game-icon">🎯</div>
+      <h3>Poki</h3>
+      <p>Discover online games.</p>
+      <button onclick="launchStriponGame('https://poki.com/')">
+        Explore Games
+      </button>
+    </div>
+
+  </div>
+
+  <p id="noGames" hidden>No matching games found.</p>
+
+  <div class="gaming-extra">
+    <h2>🌐 Online Gaming</h2>
+    <p>Explore external game libraries. Availability and features depend on each provider.</p>
+    <button onclick="launchStriponGame('https://www.crazygames.com/')">
+      Open Gaming Centre
+    </button>
+  </div>
+</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRIPON - Home</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f8fc;
+  color: #171717;
+  padding-bottom: 75px;
+}
+
+header {
+  background: white;
+  padding: 13px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  color: #6250ed;
+  letter-spacing: -1px;
+}
+
+.header-buttons button {
+  border: none;
+  background: #f0efff;
+  padding: 10px;
+  border-radius: 50%;
+  margin-left: 5px;
+  font-size: 17px;
+}
+
+.search {
+  padding: 12px;
+  background: white;
+}
+
+.search input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 15px;
+  outline: none;
+}
+
+.categories {
+  display: flex;
+  gap: 9px;
+  padding: 10px;
+  overflow-x: auto;
+  background: white;
+}
+
+.categories button {
+  border: none;
+  background: #eeeef3;
+  padding: 9px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.categories button.active {
+  background: #6250ed;
+  color: white;
+}
+
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  padding-bottom: 15px;
+}
+
+.video-card {
+  background: white;
+  width: 100%;
+  overflow: hidden;
+}
+
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #ddd;
+  position: relative;
+}
+
+.thumbnail img,
+.thumbnail video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.duration {
+  position: absolute;
+  bottom: 9px;
+  right: 9px;
+  background: #111;
+  color: white;
+  padding: 4px 7px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.video-info {
+  display: flex;
+  padding: 12px;
+  gap: 11px;
+}
+
+.avatar {
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: #6250ed;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.details {
+  flex: 1;
+}
+
+.details h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.details p {
+  margin: 3px 0;
+  font-size: 12px;
+  color: #777;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  padding: 0 12px 12px 62px;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  border: none;
+  background: #f1f1f5;
+  padding: 8px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.actions button:active {
+  background: #dedaff;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  padding: 9px 2px;
+  z-index: 20;
+}
+
+.bottom-nav button {
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.bottom-nav button span {
+  font-size: 20px;
+}
+
+.bottom-nav button.active {
+  color: #6250ed;
+  font-weight: bold;
+}
+
+.empty {
+  text-align: center;
+  padding: 35px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">STRIPON</div>
+  <div class="header-buttons">
+    <button onclick="alert('Notifications')">🔔</button>
+    <button onclick="alert('Your profile')">👤</button>
+  </div>
+</header>
+
+<div class="search">
+  <input id="searchInput"
+    type="search"
+    placeholder="Search videos, creators..."
+    oninput="filterVideos()">
+</div>
+
+<div class="categories">
+  <button class="active" onclick="chooseCategory('All',this)">All</button>
+  <button onclick="chooseCategory('Music',this)">Music</button>
+  <button onclick="chooseCategory('Gaming',this)">Gaming</button>
+  <button onclick="chooseCategory('Sports',this)">Sports</button>
+  <button onclick="chooseCategory('Movies',this)">Movies</button>
+  <button onclick="chooseCategory('Education',this)">Education</button>
+  <button onclick="chooseCategory('Comedy',this)">Comedy</button>
+</div>
+
+<main class="video-list" id="videoList">
+
+  <article class="video-card" data-category="Music">
+    <div class="thumbnail">
+      <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=900"
+           alt="Music performance">
+      <span class="duration">12:35</span>
+    </div>
+    <div class="video-info">
+      <div class="avatar">S</div>
+      <div class="details">
+        <h3>Best Music and Entertainment on STRIPON</h3>
+        <p>STRIPON Music</p>
+        <p>12K views • 2 days ago</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button onclick="likeVideo(this)">👍 Like</button>
+      <button onclick="commentVideo()">💬 Comment</button>
+      <button onclick="shareVideo()">↗ Share</button>
+      <button onclick="subscribe(this)">Subscribe</button>
+    </div>
+  </article>
+
+  <article class="video-card" data-category="Gaming">
+    <div class="thumbnail">
+      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=900"
+           alt="Gaming setup">
+      <span class="duration">18:20</span>
+    </div>
+    <div class="video-info">
+      <div class="avatar">G</div>
+      <div class="details">
+        <h3>Exciting Gaming Moments and Challenges</h3>
+        <p>STRIPON Gaming</p>
+        <p>8K views • 1 day ago</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button onclick="likeVideo(this)">👍 Like</button>
+      <button onclick="commentVideo()">💬 Comment</button>
+      <button onclick="shareVideo()">↗ Share</button>
+      <button onclick="subscribe(this)">Subscribe</button>
+    </div>
+  </article>
+
+  <article class="video-card" data-category="Sports">
+    <div class="thumbnail">
+      <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=900"
+           alt="Sports">
+      <span class="duration">09:45</span>
+    </div>
+    <div class="video-info">
+      <div class="avatar">S</div>
+      <div class="details">
+        <h3>Sports Highlights and Amazing Moments</h3>
+        <p>Sports World</p>
+        <p>5K views • 3 days ago</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button onclick="likeVideo(this)">👍 Like</button>
+      <button onclick="commentVideo()">💬 Comment</button>
+      <button onclick="shareVideo()">↗ Share</button>
+      <button onclick="subscribe(this)">Subscribe</button>
+    </div>
+  </article>
+
+  <article class="video-card" data-category="Education">
+    <div class="thumbnail">
+      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900"
+           alt="Education">
+      <span class="duration">15:10</span>
+    </div>
+    <div class="video-info">
+      <div class="avatar">L</div>
+      <div class="details">
+        <h3>Learn Something New Every Day</h3>
+        <p>Learning Hub</p>
+        <p>3K views • 4 days ago</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button onclick="likeVideo(this)">👍 Like</button>
+      <button onclick="commentVideo()">💬 Comment</button>
+      <button onclick="shareVideo()">↗ Share</button>
+      <button onclick="subscribe(this)">Subscribe</button>
+    </div>
+  </article>
+
+</main>
+
+<nav class="bottom-nav">
+  <button class="active" onclick="goTo('home',this)">
+    <span>⌂</span>Home
+  </button>
+  <button onclick="goTo('shorts',this)">
+    <span>▶</span>Shorts
+  </button>
+  <button onclick="goTo('posting',this)">
+    <span>＋</span>Create
+  </button>
+  <button onclick="goTo('gaming',this)">
+    <span>🎮</span>Gaming
+  </button>
+  <button onclick="goTo('messaging',this)">
+    <span>✉</span>Messages
+  </button>
+  <button onclick="goTo('profile',this)">
+    <span>👤</span>Profile
+  </button>
+</nav>
+
+<script>
+let selectedCategory = "All";
+
+function chooseCategory(category, button) {
+  selectedCategory = category;
+
+  document.querySelectorAll(".categories button")
+    .forEach(b => b.classList.remove("active"));
+
+  button.classList.add("active");
+  filterVideos();
+}
+
+function filterVideos() {
+  const search = document.getElementById("searchInput")
+    .value.toLowerCase();
+
+  let visible = 0;
+
+  document.querySelectorAll(".video-card").forEach(card => {
+    const matchesCategory =
+      selectedCategory === "All" ||
+      card.dataset.category === selectedCategory;
+
+    const matchesSearch =
+      card.innerText.toLowerCase().includes(search);
+
+    card.style.display =
+      matchesCategory && matchesSearch ? "block" : "none";
+
+    if (matchesCategory && matchesSearch) visible++;
+  });
+
+  let empty = document.getElementById("emptyMessage");
+
+  if (!empty) {
+    empty = document.createElement("div");
+    empty.id = "emptyMessage";
+    empty.className = "empty";
+    document.getElementById("videoList").appendChild(empty);
+  }
+
+  empty.textContent = visible ? "" : "No videos found.";
+}
+
+function likeVideo(button) {
+  const liked = button.dataset.liked === "yes";
+
+  button.dataset.liked = liked ? "no" : "yes";
+  button.textContent = liked ? "👍 Like" : "💜 Liked";
+}
+
+function commentVideo() {
+  const comment = prompt("Write your comment:");
+
+  if (comment && comment.trim()) {
+    alert("Comment added in this demo.");
+  }
+}
+
+function shareVideo() {
+  if (navigator.share) {
+    navigator.share({
+      title: "STRIPON Video",
+      text: "Check out this video on STRIPON."
+    }).catch(() => {});
+  } else {
+    alert("Sharing is not supported on this device.");
+  }
+}
+
+function subscribe(button) {
+  const subscribed = button.dataset.subscribed === "yes";
+
+  button.dataset.subscribed = subscribed ? "no" : "yes";
+  button.textContent = subscribed ? "Subscribe" : "Subscribed";
+}
+
+function goTo(page, button) {
+  if (page === "home") {
+    window.scrollTo({top: 0, behavior: "smooth"});
+    return;
+  }
+
+  alert("Connect this button to your existing " + page + " section.");
+}
+</script>
+
+</body>
+</html>
